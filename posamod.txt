@@ -1,0 +1,23 @@
+#Pri
+Ke, 0.0243, 0.0322
+V, 287
+Cl, 7.5, 11
+tlag, 1,2
+
+#cov
+wt
+age
+gender
+height
+
+
+
+#LAG
+TLAG(1)= tlag1
+
+#Out
+Y(1) = X(1)/V
+
+#Err
+G=3
+0.025, 0.15, 0, 0
