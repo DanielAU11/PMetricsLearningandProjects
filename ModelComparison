@@ -1,0 +1,44 @@
+library(PMetrics)
+
+wd <- "C:/LAPK/PMetrics/Examples"
+setwd(wd)
+
+#Data object which will be in ex.csv
+setwd("src)
+exData <- PM_data$new(data = "ex.csv")
+
+#Create Model object
+mod1b <- PM_model$new("model.txt")
+
+#Fit Model to Data
+#We define a new fit to be run as the combination of a dataset and a suitable model.
+exFit <- PM_fit$new(model = mod1, data = exData)
+exFit$check() #check for errors in model file
+
+#Create an object for a run. In this case run 1 defined as 1 as the folder name in the Runs folder
+setwd(wd)
+setwd("Runs")
+
+# First clone mod1b
+mod2 <- mod1b$clone()
+
+# Then update it. In this case, V is dependent on weight. V0 are our priors we estimate V to be based on literature/estimates 
+mod2$update(list(
+  pri = list(
+    V0 = ab(30, 120),
+    V = NULL
+  ),
+  sec = "V = V0*(WT/55)"
+))
+# we can also make a model object by loading a file
+mod2b <- PM_model$new("../src/model2.txt")
+
+#fit to data 
+exFit2 <- PM_fit$new(data = exData, model = mod2)
+
+#Create object for run with covariates
+exRes2 <- PM_load(2)
+
+#Finally compare the models
+#This is based on both runs 1 and 2 since two models were used
+PM_compare(exRes, exRes2)
