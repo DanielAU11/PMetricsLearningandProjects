@@ -5,7 +5,8 @@ This feature allows us to quantify how likely a given dosing regimen is to achie
 
 The pharmacodynamic index (PDI) is generated from the simulation profiles (concentration vs. time). Tells us the proportion that are above the target or at a target. 
 
-Allows us to answer this question: “If I give this dose to patients whose PK parameters vary as they do in the population, what fraction of them will hit my efficacy target?”
+Allows us to answer this question:
+*“If I give this dose to patients whose PK parameters vary as they do in the population, what fraction of them will hit my efficacy target?”*
 
 ### Why it is Used?
 - Inter‐patient variability: Patients differ in clearance (Cl), volume (V), absorption (Ka), etc.
